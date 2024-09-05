@@ -104,5 +104,5 @@ def matrixMulti(x,y,n):
     for j in range(n):
         for i in range(n):
             dp = dp + x[i, j]*y[i, j]
-    return dp
+    return dp # returns the dot product
 driver()
