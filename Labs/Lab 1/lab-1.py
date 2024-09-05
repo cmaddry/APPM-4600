@@ -46,7 +46,7 @@ a = plt.semilogy(x, w)
 plt.xlabel('x')
 plt.ylabel('w')
 s = 3*w
-plt.semilogy(x,s)
+plt.semilogy(x,s) # plots a semilogy plot
 plt.savefig('test.png') ## prints fig 
 
 
