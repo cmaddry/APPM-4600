@@ -96,6 +96,8 @@ def driver():
     print('the dot product is : ', dp)
     return
 
+
+## This is my attempt at creating a function that multiplies matricies
 def matrixMulti(x,y,n):
     # Computes the dot product of the n x 1 vectors x and y
     dp = 0.
