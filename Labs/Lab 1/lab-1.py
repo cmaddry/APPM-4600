@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
+import numpy as np # adds necessary packages to 
 
 
 # ## vectors 
@@ -67,7 +67,7 @@ def driver():
     # evaluate the dot product of y and w
     dp = dotProduct(y,w,n)
     # print the output
-    print('the dot product is : ', dp)
+    print('the dot product is : ', dp) 
     return
 
 def dotProduct(x,y,n):
