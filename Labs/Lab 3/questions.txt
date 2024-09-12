@@ -1,0 +1,13 @@
+Question 1
+This method was successful for (a) and (c), but not for (b). This is because the root x = 1 is not in the interval (-1, 0.5) and the bisection does not find the root for x = 0. Therefore, it does not find any roots. This is because the bisection algorithm can only find roots in a range that is monotonic and the function isn't for that range.
+
+
+
+Question 2
+The behavior is what I expected. The bisection method worked for (a) and (c) on the interval (a = 0, b = 0.1), but not on (b) or (c) with the interval (a = 0.5, b = 3*pi/4). This follows the same logic as above, the bisection method only works for a monotonic function on a specific range. 
+
+
+Question 3
+* For x = 7^(1/5) to be a fixed point of f, f(7^(1/5)) = 7^(1/5). This is true for (a) - (d).
+
+* The fixed point iteration converges for functions (c) and (d), but not for (a) and (b). (a) fails when nmax > 3 and (b) fails when nmax > 5. The fixed point method is not convering because |f'(7^(1/5))| is not < 1, and thus the method will not converge.
