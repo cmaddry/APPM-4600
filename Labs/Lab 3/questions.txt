@@ -10,4 +10,4 @@ The behavior is what I expected. The bisection method worked for (a) and (c) on 
 Question 3
 * For x = 7^(1/5) to be a fixed point of f, f(7^(1/5)) = 7^(1/5). This is true for (a) - (d).
 
-* The fixed point iteration converges for functions (c) and (d), but not for (a) and (b). (a) fails when nmax > 3 and (b) fails when nmax > 5. The fixed point method is not convering because |f'(7^(1/5))| is not < 1, and thus the method will not converge.
+* The fixed point iteration converges for functions (c) and (d), but not for (a) and (b). (a) fails when nmax > 3 and (b) fails when nmax > 5. The fixed point method is not converging because |f'(7^(1/5))| is not < 1, and thus the method will not converge.
