@@ -1,11 +1,38 @@
 import numpy as np
 
-# Defining the Rosenbrock function and its Jacobian
+## Quadratic
+# Quadratic function 
+def Bowl(x):
+    return x[0]**2 + x[1]**2
+
+# Jacobian of the quadratic function
+def BowlJ(x):
+    J = np.zeros(2)
+
+    J[0] = 2*x[0]
+    J[1] = 2*x[1]
+    
+    return J
+
+# Hessian of the quadratic function
+def BowlH(x):
+    H = np.zeros([2,2])
+
+    H[0,0] = 2
+    H[0,1] = 0
+    H[1,0] = 0
+    H[1,1] = 2
+
+    return H
+
+## Rosenbrock
+# Rosenbrock function
 def Rosenbrock(x):
-    ''' a = 1'''
+    import numpy as np
     a = 1; b = 100;
     return (a - x[0])**2 + b*(x[1] - x[0]**2)**2
 
+# Jacobian of the Rosenbrock function
 def RosenbrockJ(x):
     a = 1; b = 100;
 
@@ -16,6 +43,7 @@ def RosenbrockJ(x):
 
     return J
 
+# Hessian of the Rosenbrock function 
 def RosenbrockH(x):
     a = 1; b = 100;
 
@@ -28,30 +56,12 @@ def RosenbrockH(x):
 
     return H
 
-def Bowl(x):
-    return x[0]**2 + x[1]**2
-
-def BowlJ(x):
-    J = np.zeros(2)
-
-    J[0] = 2*x[0]
-    J[1] = 2*x[1]
-    
-    return J
-
-def BowlH(x):
-    H = np.zeros([2,2])
-
-    H[0,0] = 2
-    H[0,1] = 0
-    H[1,0] = 0
-    H[1,1] = 2
-
-    return H
-
+## Himmelblau
+# Himmelblau's function
 def Himmelblau(x):
     return (x[0]**2 + x[1] - 11)**2 + (x[0] + x[1]**2 - 7)**2
 
+# Jacobian of Himmelblau's function
 def HimmelblauJ(x):
     J = np.zeros(2)
 
@@ -60,6 +70,7 @@ def HimmelblauJ(x):
     
     return J
 
+# Hessian of Himmelblau's function
 def HimmelblauH(x):
     H = np.zeros([2,2])
 
