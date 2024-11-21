@@ -119,7 +119,6 @@ def LazyNewtonDescent(x0, F, J, H, tol, Nmax):
         p0 = Hinv.dot(Jeval)
         dk = -p0
 
-        # alpha = backTrackingLineSearch(x0, F, Jeval, dk, p = 0.5, alpha=1, c=1e-4)
         alpha = backTrackingLineSearch(x0, F, Jeval, dk)
 
         # Calculate the step 
