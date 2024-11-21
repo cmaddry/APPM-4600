@@ -3,6 +3,7 @@ import numpy as np
 from method_functions import GradientDescent, NewtonDescent
 from functions import Himmelblau, HimmelblauJ, HimmelblauH
 
+
 def PlotHimmelblau(x0 = [-5, 20]):
     tol = 1e-16; Nmax = 100000;
     GDRoot, error, iterations, GDSteps = GradientDescent(x0, Himmelblau, HimmelblauJ, tol, Nmax)

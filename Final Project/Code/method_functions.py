@@ -22,15 +22,11 @@ def GradientDescent(x0, F, J, tol, Nmax):
         Jeval = J(x0)
 
         # Find the step length
-        # alpha = 0.99
         dk = -Jeval
         alpha = backTrackingLineSearch(x0, F, Jeval, dk)
 
-        # Update step
-        p0 = Jeval
-
         # Calculate the step 
-        x1 = x0 - alpha * p0
+        x1 = x0 - alpha * Jeval
         xStep = xStep + [x1.tolist()]
 
     
@@ -116,9 +112,10 @@ def NewtonDescent(x0, F, J, H, tol, Nmax):
 
         # Find the step length
         p0 = Hinv.dot(Jeval)
+        dk = -p0
 
         # alpha = backTrackingLineSearch(x0, F, Jeval, dk, p = 0.5, alpha=1, c=1e-4)
-        alpha = backTrackingLineSearch(x0, F, Jeval, -p0)
+        alpha = backTrackingLineSearch(x0, F, Jeval, dk)
 
         # Calculate the step 
         x1 = x0 - alpha*p0
@@ -138,7 +135,7 @@ def NewtonDescent(x0, F, J, H, tol, Nmax):
     ier = 1
     return[xstar, ier, its, xStep]
 
-def backTrackingLineSearch(xk, F, grad_xk, dk, p = 0.5, c=0.01):
+def backTrackingLineSearch(xk, F, grad_xk, dk, p = 0.5, c=1e-3):
 
     ''' backTrackingLineSearch: calculate optimal alpha using Armijo condition'''
     ''' inputs: xk = step location, F = function, grad_xk = gradient of F, dk = descent direction, p = step length, c = Armijo constant'''
@@ -148,7 +145,7 @@ def backTrackingLineSearch(xk, F, grad_xk, dk, p = 0.5, c=0.01):
     alpha = 1.0
     
     # While the Amrijo condition is not satisfied, keep decreasing alpha
-    while F(xk + alpha * dk) > F(xk) + c * alpha * np.dot(grad_xk, dk): 
+    while F(xk + alpha * dk) < F(xk) + c * alpha * np.dot(grad_xk, dk): 
         
         # Update alpha
         alpha = p * alpha
