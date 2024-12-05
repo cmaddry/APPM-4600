@@ -1,0 +1,53 @@
+For N = 100
+	Regular Solve technique
+		 r = 4.058610704874007
+		 solve time: 0.14034809987060726
+	LU technique
+		 r = 2.563804019053865e-14
+		 decomp time: 0.13905600016005337
+		 solve time: 0.00020159990526735783
+For N = 500
+	Regular Solve technique
+		 r = 4.018568086035205
+		 solve time: 0.07827409985475242
+	LU technique
+		 r = 5.5398682727622416e-14
+		 decomp time: 0.05930130020715296
+		 solve time: 0.00015279999934136868
+For N = 1000
+	Regular Solve technique
+		 r = 4.583507425649256
+		 solve time: 0.025609900010749698
+	LU technique
+		 r = 3.1235222617609777e-14
+		 decomp time: 0.0049749999307096004
+		 solve time: 6.949994713068008e-05
+For N = 2000
+	Regular Solve technique
+		 r = 4.518646336505996
+		 solve time: 0.003455699887126684
+	LU technique
+		 r = 4.396062618376201e-14
+		 decomp time: 0.0009969000238925219
+		 solve time: 3.609992563724518e-05
+For N = 4000
+	Regular Solve technique
+		 r = 4.249870094961597
+		 solve time: 0.0011681001633405685
+	LU technique
+		 r = 1.7225213985907978e-14
+		 decomp time: 0.0011831000447273254
+		 solve time: 4.930002614855766e-05
+For N = 5000
+	Regular Solve technique
+		 r = 3.8578646225057303
+		 solve time: 0.001004599966108799
+	LU technique
+		 r = 2.813906195422915e-14
+		 decomp time: 0.0020541998092085123
+		 solve time: 5.4900068789720535e-05
+
+
+
+
+We can clearly see that the LU solve is much faster. With N = 5000, the LU technique is twice as fast as the original solve method. 
