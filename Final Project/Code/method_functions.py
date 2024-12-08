@@ -9,9 +9,7 @@ def GradientDescent(x0, F, J, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
+        xstar = x0; ier = 0; its = 0
         return[xstar, ier, its, x0]
     
     xStep = [x0]
@@ -29,15 +27,13 @@ def GradientDescent(x0, F, J, tol, Nmax):
     
         # If we found the root (to within the tolerance), return it and 0 for the error message
         if (norm(x1 - x0) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
         
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def NewtonDescent(x0, F, J, H, tol, Nmax):
@@ -48,10 +44,8 @@ def NewtonDescent(x0, F, J, H, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
-        return
+        xstar = x0; ier = 0; its = 0
+        return [xstar, ier, its, xStep]
 
     xStep = [x0]
 
@@ -76,15 +70,13 @@ def NewtonDescent(x0, F, J, H, tol, Nmax):
         # If we found the root (to within the tolerance), 
         # return it and 0 for the error message
         if (norm(x1 - x0) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
         
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def LazyNewtonDescent(x0, F, J, H, tol, Nmax):
@@ -95,10 +87,8 @@ def LazyNewtonDescent(x0, F, J, H, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
-        return
+        xstar = x0; ier = 0; its = 0
+        return [xstar, ier, its, xStep]
 
     xStep = [x0]
 
@@ -123,15 +113,13 @@ def LazyNewtonDescent(x0, F, J, H, tol, Nmax):
         # If we found the root (to within the tolerance), 
         # return it and 0 for the error message
         if (norm(x1 - x0) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
         
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def BFGSNewtonDescent1(x0, F, J, H, tol, Nmax):
@@ -142,9 +130,7 @@ def BFGSNewtonDescent1(x0, F, J, H, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
+        xstar = x0; ier = 0; its = 0
         return [xstar, ier, its, [x0]]
 
     xStep = [x0]
@@ -170,8 +156,7 @@ def BFGSNewtonDescent1(x0, F, J, H, tol, Nmax):
         # If we found the root (to within the tolerance), 
         # return it and 0 for the error message
         if (norm(x1 - x0) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
 
         # BFGS update 
@@ -182,8 +167,7 @@ def BFGSNewtonDescent1(x0, F, J, H, tol, Nmax):
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def BFGS1(s, y, B0):
@@ -207,9 +191,7 @@ def BFGSNewtonDescent2(x0, F, J, H, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
+        xstar = x0; ier = 0; its = 0
         return [xstar, ier, its, [x0]]
 
     xStep = [x0]
@@ -235,8 +217,7 @@ def BFGSNewtonDescent2(x0, F, J, H, tol, Nmax):
         # If we found the root (to within the tolerance), 
         # return it and 0 for the error message
         if (norm(x1 - x0) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
 
         # BFGS update 
@@ -247,8 +228,7 @@ def BFGSNewtonDescent2(x0, F, J, H, tol, Nmax):
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def BFGS2(s, y, B0_inv):
@@ -268,6 +248,64 @@ def BFGS2(s, y, B0_inv):
 
     return B1_inv
 
+def DFPNewtonDescent(x0, F, J, H, tol, Nmax):
+
+    ''' BFGSNewtonDescent: use only the inverse of the Jacobian for initial guess'''
+    ''' inputs: x0 = initial guess, F = Function, J = Jacobian of F, H = Hessian of F, tol = tolerance, Nmax = max its'''
+    ''' Outputs: xstar = approximate root, ier = error message, its = num its, xStep = xk for each step k'''
+
+    # Checks to see if the function is already at the root
+    if norm(F(x0)) == 0: 
+        xstar = x0; ier = 0; its = 0
+        return [xstar, ier, its, [x0]]
+
+    xStep = [x0]
+
+    # Initial Guess is the identity matrix
+    B0inv = np.eye(2,2)
+
+    for its in range(Nmax):
+        # Evaluate J    
+        Jeval = J(x0)    
+
+        # Find the step length
+        p0 = B0inv.dot(Jeval)
+        dk = -p0
+
+        # Finds alpha with a backtracking line search
+        alpha = backTrackingLineSearch(x0, F, J, dk, wolfe=True)
+
+        # Calculate the step 
+        x1 = x0 + dk*alpha
+        xStep = xStep + [x1.tolist()]
+       
+        # If we found the root (to within the tolerance), 
+        # return it and 0 for the error message
+        if (norm(x1 - x0) < tol):
+           xstar = x1; ier = 0
+           return[xstar, ier, its, xStep]
+
+        # BFGS update 
+        s = x1 - x0
+        y = J(x1) - J(x0)       
+        B0inv = BFGS2(s, y, B0inv)
+        
+        x0 = x1
+    
+    # If we didn't find the root, return the step and an error of 1
+    xstar = x1; ier = 1
+    return[xstar, ier, its, xStep]
+
+def DFP(s, y, B0_inv):
+    # Terms for the Hessian Approximation
+    term1 = (B0_inv @ np.outer @ B0_inv)/(y.T @ B0_inv @ y)
+    term2 = np.outer(s,s)/np.dot(y,s)
+
+    # Calculation of the inverse Hessian approximation
+    B1_inv =  B0_inv - term1 + term2
+
+    return B1_inv
+
 def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
 
     ''' BFGSNewtonDescent: use only the inverse of the Jacobian for initial guess'''
@@ -276,9 +314,7 @@ def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
 
     # Checks to see if the function is already at the root
     if norm(F(x0)) == 0: 
-        xstar = x0
-        ier = 0
-        its = 0
+        xstar = x0; ier = 0; its = 0
         return [xstar, ier, its, xStep]
 
     xStep = [x0]
@@ -304,8 +340,7 @@ def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
         # If we found the root (to within the tolerance), 
         # return it and 0 for the error message
         if (norm(F(x1)) < tol):
-           xstar = x1
-           ier = 0
+           xstar = x1; ier = 0
            return[xstar, ier, its, xStep]
         
         # Stuff for BFGS
@@ -319,8 +354,7 @@ def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
         x0 = x1
     
     # If we didn't find the root, return the step and an error of 1
-    xstar = x1
-    ier = 1
+    xstar = x1; ier = 1
     return[xstar, ier, its, xStep]
 
 def SR1(s, y, B0):
@@ -347,13 +381,9 @@ def backTrackingLineSearch(xk, F, J, dk, wolfe=False, maxIts = 100000, p = 0.5, 
     alpha = 1.0
     its = 0
 
-    grad_xk = J(xk)
-    c2 = c1*1.1
-
     if wolfe == False:
-
         # While the Amrijo condition is not satisfied, keep decreasing alpha
-        while F(xk + alpha * dk) > F(xk) + c1 * alpha * np.dot(grad_xk, dk) and its < maxIts: 
+        while F(xk + alpha * dk) > F(xk) + c1 * alpha * np.dot(J(xk), dk) and its < maxIts: 
             
             # Update alpha
             alpha = p * alpha
@@ -361,11 +391,11 @@ def backTrackingLineSearch(xk, F, J, dk, wolfe=False, maxIts = 100000, p = 0.5, 
 
     elif wolfe == True:
         # While the Amrijo and Wolfe condition is not satisfied, keep decreasing alpha
-        while F(xk + alpha * dk) > F(xk) + c1 * alpha * np.dot(grad_xk, dk) and np.dot(J(xk + alpha * dk), dk) < c2 * np.dot(grad_xk, dk) and its < maxIts: 
+        while F(xk + alpha * dk) > F(xk) + c1 * alpha * np.dot(J(xk), dk) and np.dot(J(xk + alpha * dk), dk) < c2 * np.dot(J(xk), dk) and its < maxIts: 
             
             # Update alpha
             alpha = p * alpha
-            its +=its
+            its += its
 
     # Return alpha
     return alpha
