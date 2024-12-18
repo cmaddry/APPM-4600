@@ -377,7 +377,7 @@ def DFP2(s, y, B0):
 
     return B1
 
-def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
+def SR1NewtonDescent(x0, F, J, H0, tol, Nmax):
 
     ''' BFGSNewtonDescent: use only the inverse of the Jacobian for initial guess'''
     ''' inputs: x0 = initial guess, F = Function, J = Jacobian of F, H = Hessian of F, tol = tolerance, Nmax = max its'''
@@ -391,7 +391,7 @@ def SR1NewtonDescent(x0, F, J, H, tol, Nmax):
     xStep = [x0]
 
     # Inital B0 is the hessian at x0
-    B0 = np.eye(2,2)
+    B0 = H0
 
     for its in range(Nmax):
         # Evaluate J    
